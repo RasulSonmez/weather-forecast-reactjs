@@ -1,51 +1,73 @@
 import React from "react";
-import Icon1 from "../../../icons/01n.svg";
-import Icon2 from "../../../icons/02d.svg";
-import Icon3 from "../../../icons/04d.svg";
+import { useMainContext } from "../../../context/MainContext";
 
 function ForecastCard() {
-  return (
-    <div>
-      <h2 className="pt-5 text-center text-sky-500 text-2xl font-medium">
-        Istanbul Province, <br /> Turkey
-      </h2>
-      <figure className="flex items-center justify-center">
-        <img src={Icon1} alt="" />
-      </figure>
+  const { oneCity, day, todayDate } = useMainContext();
 
-      <div className="flex items-center justify-center flex-col">
-        <div class="weather-inner">
-          <span class="text-6xl text-sky-500">
-            <strong>9</strong>
-          </span>
-          <span class="text-3xl pb-5 text-gray-400 ">°</span>
-          <span class="text-2xl pb-4 text-gray-400 ">C</span>
-        </div>
-        <span class="text-gray-500  text-sm font-semibold mt-4">
-          Feels Like: 8°
-        </span>
-        <div class="flex items-end mt-4">
-          <span class="text-3xl text-sky-500 font-semibold pr-2">
-            Çarşamba,
-          </span>
-          <time class="text-gray-400">21:00</time>
-        </div>
-      </div>
-      <div className="border-b border-gray-200 border-bottom w-full my-8 mx-auto"></div>
-      <div>
-        <div class="flex items-center">
-          <img className="h-14" src={Icon2} alt="overcast clouds" />
-          <span className="capitalize pl-1 ">overcast clouds</span>
-        </div>
-        <div className="flex items-center">
-          <figure>
-            <img className="h-14" src={Icon3} alt="overcast clouds" />
+  return (
+    <>
+      {oneCity ? (
+        <>
+          <h2 className="pt-5 text-center text-sky-500 text-2xl font-medium">
+            {oneCity.name} / {oneCity.sys?.country}
+          </h2>
+          <figure className="flex items-center justify-center">
+            <img
+              src={`http://openweathermap.org/img/wn/${oneCity?.weather?.[0]?.icon}@4x.png`}
+              alt={oneCity.name}
+              className="h-52"
+            />
           </figure>
-          <span className="capitalize pl-1 ">Rain - 0%</span>
-        </div>
-        <div></div>
-      </div>
-    </div>
+
+          <div className="flex items-center justify-center flex-col">
+            <div className="weather-inner">
+              <span className="text-6xl text-sky-500">
+                <strong>{Math.floor(oneCity.main?.temp)}</strong>
+              </span>
+              <span className="text-3xl pb-5 text-gray-400 ">°</span>
+              <span className="text-2xl pb-4 text-gray-400 ">C</span>
+            </div>
+            <span className="text-gray-500  text-sm font-semibold mt-4">
+              {Math.floor(oneCity.main?.feels_like)}°C
+            </span>
+            <div className="grid text-center mt-4">
+              <time className="text-gray-400">{todayDate}</time>
+              <span className="text-3xl text-sky-500 font-semibold pr-2">
+                {day}
+              </span>
+            </div>
+          </div>
+          <div className="border-b border-gray-200 border-bottom w-full my-8 mx-auto"></div>
+          <div>
+            <div className="flex items-center">
+              <img
+                className="h-14"
+                src={`http://openweathermap.org/img/wn/${oneCity?.weather?.[0]?.icon}@4x.png`}
+                alt={oneCity.name}
+              />
+              <span className="capitalize pl-1 ">
+                {oneCity?.weather?.[0]?.description}
+              </span>
+            </div>
+            <div className="flex items-center">
+              <figure>
+                <img
+                  className="h-14"
+                  src={`http://openweathermap.org/img/wn/${oneCity?.weather?.[0]?.icon}@4x.png`}
+                  alt={oneCity.name}
+                />
+              </figure>
+              <span className="capitalize pl-1 ">
+                Humidity - {oneCity.main?.humidity}
+              </span>
+            </div>
+            <div></div>
+          </div>
+        </>
+      ) : (
+        <p>Loading...</p>
+      )}
+    </>
   );
 }
 
