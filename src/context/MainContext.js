@@ -11,11 +11,15 @@ const MainProvider = ({ children }) => {
   const [weatherData, setWeatherData] = useState([]);
   const [city, setCity] = useState(citiesJSON[33]);
   const [oneCity, setOneCity] = useState([]);
+  const [isDark, setIsDark] = useState(localStorage.getItem("isDark") || "");
+  const [isCelcius, setIsCelcius] = useState(
+    localStorage.getItem("isCelcius") || "metric"
+  );
 
   const getWeatherData = async () => {
     try {
       const { data } = await axios.get(
-        `${api.base}onecall?lat=${city.latitude}&lon=${city.longitude}&units=metric&exclude=current,minutely,hourly,alerts&lang=en&appid=${api.key}`
+        `${api.base}onecall?lat=${city.latitude}&lon=${city.longitude}&units=${isCelcius}&exclude=current,minutely,hourly,alerts&lang=en&appid=${api.key}`
       );
 
       setWeatherData(data.daily);
@@ -26,7 +30,7 @@ const MainProvider = ({ children }) => {
   const getOneCity = async () => {
     try {
       const { data } = await axios.get(
-        `${api.base}weather?lat=${city.latitude}&lon=${city.longitude}&units=metric&appid=${api.key}`
+        `${api.base}weather?lat=${city.latitude}&lon=${city.longitude}&units=${isCelcius}&appid=${api.key}`
       );
       setOneCity(data);
     } catch (error) {
@@ -36,10 +40,14 @@ const MainProvider = ({ children }) => {
 
   useEffect(() => {
     // eslint-disable-next-line
+    localStorage.setItem("isDark", isDark);
+    // eslint-disable-next-line
+    localStorage.setItem("isCelcius", isCelcius);
+    // eslint-disable-next-line
     getWeatherData();
     // eslint-disable-next-line
     getOneCity();
-  }, [city]);
+  }, [city, isDark, isCelcius]);
 
   const days = [
     "Sunday",
@@ -92,6 +100,10 @@ const MainProvider = ({ children }) => {
     getDay,
     todayDate,
     oneCity,
+    isDark,
+    setIsDark,
+    isCelcius,
+    setIsCelcius,
   };
 
   return <MainContext.Provider value={values}>{children}</MainContext.Provider>;

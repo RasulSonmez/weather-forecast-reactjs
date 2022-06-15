@@ -24,15 +24,18 @@ function ForecastCard() {
               <span className="text-6xl text-sky-500">
                 <strong>{Math.floor(oneCity.main?.temp)}</strong>
               </span>
-              <span className="text-3xl pb-5 text-gray-400 ">°</span>
-              <span className="text-2xl pb-4 text-gray-400 ">C</span>
+              <span className="text-3xl pb-5 text-gray-400  dark:text-gray-200">
+                °
+              </span>
             </div>
-            <span className="text-gray-500  text-sm font-semibold mt-4">
-              {Math.floor(oneCity.main?.feels_like)}°C
+            <span className="text-gray-500  text-sm font-semibold mt-4 dark:text-gray-200">
+              Feels Like: {Math.floor(oneCity.main?.feels_like)}°
             </span>
             <div className="grid text-center mt-4">
-              <time className="text-gray-400">{todayDate}</time>
-              <span className="text-3xl text-sky-500 font-semibold pr-2">
+              <time className="text-gray-400 dark:text-gray-200">
+                {todayDate}
+              </time>
+              <span className="text-3xl text-sky-500 font-semibold pr-2 dark:text-gray-200">
                 {day}
               </span>
             </div>
@@ -45,7 +48,7 @@ function ForecastCard() {
                 src={`http://openweathermap.org/img/wn/${oneCity?.weather?.[0]?.icon}@4x.png`}
                 alt={oneCity.name}
               />
-              <span className="capitalize pl-1 ">
+              <span className="capitalize pl-1 dark:text-gray-200">
                 {oneCity?.weather?.[0]?.description}
               </span>
             </div>
@@ -57,8 +60,8 @@ function ForecastCard() {
                   alt={oneCity.name}
                 />
               </figure>
-              <span className="capitalize pl-1 ">
-                Humidity - {oneCity.main?.humidity}
+              <span className="capitalize pl-1  dark:text-gray-200">
+                Humidity : {oneCity.main?.humidity}
               </span>
             </div>
             <div></div>

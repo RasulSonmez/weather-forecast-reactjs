@@ -10,16 +10,16 @@ function DropDownMenu() {
     }
   };
   return (
-    <div className=" mt-3 flex items-center overflow-hidden rounded-2xl border border-gray-200">
+    <div className=" mt-3 flex items-center overflow-hidden rounded-2xl border border-gray-200 dark:border-gray-500">
       <select
-        className="h-8 outline-none bg-white text-gray-700 text-sm px-2 w-full"
+        className="h-8 outline-none bg-white text-gray-700   dark:bg-gray-500 dark:text-gray-200 text-sm px-2 w-full"
         name="cityname"
         id="cityname"
         value={city.name}
         onChange={changeCityName}
       >
         {citiesJSON.map((item, key) => (
-          <option key={key} value={item.name}>
+          <option className="dark:text-gray-400" key={key} value={item.name}>
             {item.name}
           </option>
         ))}
