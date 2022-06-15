@@ -17,6 +17,7 @@ function Navbar() {
         <div className="relative inline-block w-12 align-middle select-none transition duration-200 ease-in">
           <input
             checked={isCelcius === "metric" ? false : true}
+            onChange={() => {}}
             onClick={() =>
               setIsCelcius(isCelcius === "metric" ? "standart" : "metric")
             }

@@ -39,14 +39,11 @@ const MainProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    // eslint-disable-next-line
     localStorage.setItem("isDark", isDark);
-    // eslint-disable-next-line
     localStorage.setItem("isCelcius", isCelcius);
-    // eslint-disable-next-line
     getWeatherData();
-    // eslint-disable-next-line
     getOneCity();
+    // eslint-disable-next-line
   }, [city, isDark, isCelcius]);
 
   const days = [

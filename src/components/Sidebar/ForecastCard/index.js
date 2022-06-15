@@ -6,15 +6,15 @@ function ForecastCard() {
 
   return (
     <>
-      {oneCity ? (
+      {typeof oneCity !== "undefined" ? (
         <>
           <h2 className="pt-5 text-center text-sky-500 text-2xl font-medium">
             {oneCity.name} / {oneCity.sys?.country}
           </h2>
           <figure className="flex items-center justify-center">
             <img
-              src={`http://openweathermap.org/img/wn/${oneCity?.weather?.[0]?.icon}@4x.png`}
-              alt={oneCity.name}
+              src={`http://openweathermap.org/img/wn/${oneCity.weather?.[0]?.icon}@4x.png`}
+              alt={oneCity?.name}
               className="h-52"
             />
           </figure>
@@ -45,8 +45,8 @@ function ForecastCard() {
             <div className="flex items-center">
               <img
                 className="h-14"
-                src={`http://openweathermap.org/img/wn/${oneCity?.weather?.[0]?.icon}@4x.png`}
-                alt={oneCity.name}
+                src={`http://openweathermap.org/img/wn/${oneCity.weather?.[0]?.icon}@4x.png`}
+                alt={oneCity?.name}
               />
               <span className="capitalize pl-1 dark:text-gray-200">
                 {oneCity?.weather?.[0]?.description}
@@ -56,8 +56,8 @@ function ForecastCard() {
               <figure>
                 <img
                   className="h-14"
-                  src={`http://openweathermap.org/img/wn/${oneCity?.weather?.[0]?.icon}@4x.png`}
-                  alt={oneCity.name}
+                  src={`http://openweathermap.org/img/wn/${oneCity.weather?.[0]?.icon}@4x.png`}
+                  alt={oneCity?.name}
                 />
               </figure>
               <span className="capitalize pl-1  dark:text-gray-200">

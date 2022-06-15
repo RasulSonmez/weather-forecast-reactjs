@@ -9,7 +9,7 @@ function Highlights() {
       <h2 className="pt-5  text-sky-500 text-2xl font-medium">
         Today's Highlights
       </h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
         <Tempratures />
         <Humidity />
         <SunriseSunset />
