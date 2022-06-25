@@ -3,7 +3,7 @@ import React, { createContext, useContext, useState, useEffect } from "react";
 import citiesJSON from "../data/cities.json";
 const MainContext = createContext();
 const api = {
-  key: "361ab7de78bc989d38e09db8241b498e",
+  key: process.env.REACT_APP_API_KEY,
   base: "https://api.openweathermap.org/data/2.5/",
 };
 

@@ -23,7 +23,7 @@
 }
 
 .sidebar{
-  @apply  mx-auto  p-8 col-span-3 w-full  bg-white dark:bg-gray-900 
+  @apply  mx-auto rounded-3xl p-8 col-span-3 w-full  bg-white dark:bg-gray-900 border
 }
 
 .container{
