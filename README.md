@@ -4,9 +4,10 @@
 
 ## Dependencies
 
--Axios
--React Icon
--@react-hook/window-size
+- Axios
+- React Icon
+- @react-hook/window-size
+- Tailwindcss
 
 ## Run it on your computer
 
