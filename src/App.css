@@ -15,15 +15,15 @@
 
 
 .main{
-  @apply grid h-full	min-h-screen place-items-center p-16 bg-gradient-to-tr dark:bg-gradient-to-tr dark:from-gray-600 dark:to-gray-900 from-sky-100 to-sky-300 
+  @apply grid h-full	min-h-screen place-items-center p-4  bg-gradient-to-tr dark:bg-gradient-to-tr dark:from-gray-600 dark:to-gray-900 from-sky-100 to-sky-300 
 }
 
 .wrapper{
-  @apply container  grid lg:grid-cols-12 md:grid-cols-1 gap-8 justify-center bg-white dark:bg-gray-800  rounded-3xl overflow-hidden;
+  @apply container  lg:grid lg:grid-cols-12 md:grid-cols-1 justify-center bg-white dark:bg-gray-800  rounded-3xl overflow-hidden;
 }
 
 .sidebar{
-  @apply  mx-auto  p-8 col-span-3  bg-white dark:bg-gray-900 max-w-xs
+  @apply  mx-auto  p-8 col-span-3 w-full  bg-white dark:bg-gray-900 
 }
 
 .container{

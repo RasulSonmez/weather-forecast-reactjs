@@ -42,7 +42,7 @@ function ForecastCard() {
           </div>
           <div className="border-b border-gray-200 border-bottom w-full my-8 mx-auto"></div>
           <div>
-            <div className="flex items-center">
+            <div className="flex items-center justify-items-center">
               <img
                 className="h-14"
                 src={`http://openweathermap.org/img/wn/${oneCity.weather?.[0]?.icon}@4x.png`}
@@ -52,7 +52,7 @@ function ForecastCard() {
                 {oneCity?.weather?.[0]?.description}
               </span>
             </div>
-            <div className="flex items-center">
+            <div className="flex items-center justify-items-center">
               <figure>
                 <img
                   className="h-14"

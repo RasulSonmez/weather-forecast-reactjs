@@ -6,7 +6,7 @@ import darkSun from "../../icons/01d.svg";
 function Navbar() {
   const { isDark, setIsDark, isCelcius, setIsCelcius } = useMainContext();
   return (
-    <div className="flex justify-end items-center">
+    <div className="flex justify-end items-center mb-4">
       <div className="flex items-center mr-6">
         <label
           htmlFor="toggle"

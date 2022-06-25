@@ -9,7 +9,7 @@ function WeeklyForecast() {
         Weekly Forecast
       </h2>
       <h1 className="text-gray-600 dark:text-gray-200">{city.name}</h1>
-      <ul className="grid grid-cols-2 xl:grid-cols-8 md:grid-cols-3 sm:grid-cols-2 gap-3 md:gap-6 lg:gap-2 ">
+      <ul className="grid grid-cols-2 lg:grid-cols-8 md:grid-cols-3 sm:grid-cols-2 gap-3 md:gap-6 lg:gap-2 ">
         {weatherData &&
           weatherData.map((item, idx) => (
             <li
